@@ -1,0 +1,81 @@
+#N canvas 560 78 786 536 10;
+#X obj -2107 -1938 +~;
+#X obj -2092 -1962 *~;
+#X obj -1978 -2016 line~;
+#X msg -1978 -2039 \$1 10;
+#X obj -2057 -1833 *~;
+#X obj -2009 -1823 line~;
+#X msg -2009 -1851 \$1 10;
+#X obj -2006 -1875 hsl 128 15 0 0.5 0 0 empty empty empty -2 -8 0 10
+-204786 -1 -1 2900 1;
+#X obj -2039 -2068 nbx 4 14 -1e+37 1e+37 0 1 empty modulator empty
+0 -8 0 10 -204800 -1 -1 1 256;
+#X obj -1978 -2068 nbx 4 14 0 1e+37 0 1 empty index empty 0 -8 0 10
+-204786 -1 -1 1 256;
+#X obj -2107 -2066 nbx 4 14 -1e+37 1e+37 0 1 empty carrier empty 0
+-8 0 10 -232576 -1 -1 440 256;
+#X text -2116 -2088 carrier;
+#X obj -2057 -1778 dac~;
+#X obj -2062 -2032 *~;
+#X obj -2032 -1994 *~;
+#X text -2051 -2089 Harmonicity;
+#X obj -1777 -1948 vline~;
+#X obj -1891 -2079 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -1887 -1950 vline~;
+#X obj -1957 -1773 *~;
+#X obj -1891 -2038 nbx 5 14 -1e+37 1e+37 0 0 empty index empty 0 -8
+0 10 -262144 -1 -1 1 256;
+#X obj -1667 -1861 nbx 5 14 -1e+37 1e+37 0 0 empty duration empty 0
+-8 0 10 -262144 -1 -1 5000 256;
+#X obj -1887 -2010 pack f f;
+#X msg -1887 -1981 \$1 \, 0 \$2;
+#X msg -1777 -1981 0.7 10 \, 0 \$1 10;
+#X text -2033 -1699 The modulation index varies over time. Needs to
+be added to the patch;
+#X obj -2092 -1986 osc~;
+#X obj -2155 -1904 phasor~;
+#X obj -2078 -1850 +~;
+#X text -1562 -1971 Violin;
+#X obj -2060 -1887 *~ 0.91;
+#X obj -2062 -1914 osc~;
+#X obj -2133 -1871 *~ 0.09;
+#X obj -2050 -1968 r volume;
+#X obj -2029 -1930 / 2;
+#X msg -1562 -1955 \; carrier 440 \; modulator 1 \; index 1 \; duration
+5000 \;;
+#X connect 0 0 27 0;
+#X connect 0 0 31 0;
+#X connect 1 0 0 1;
+#X connect 3 0 2 0;
+#X connect 4 0 12 0;
+#X connect 4 0 12 1;
+#X connect 5 0 19 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 13 1;
+#X connect 9 0 3 0;
+#X connect 10 0 0 0;
+#X connect 10 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 26 0;
+#X connect 14 0 1 1;
+#X connect 16 0 19 1;
+#X connect 17 0 20 0;
+#X connect 17 0 24 0;
+#X connect 18 0 14 1;
+#X connect 19 0 4 1;
+#X connect 20 0 22 0;
+#X connect 21 0 22 1;
+#X connect 21 0 24 0;
+#X connect 22 0 23 0;
+#X connect 23 0 18 0;
+#X connect 24 0 16 0;
+#X connect 26 0 1 0;
+#X connect 27 0 32 0;
+#X connect 28 0 4 0;
+#X connect 30 0 28 1;
+#X connect 31 0 30 0;
+#X connect 32 0 28 0;
+#X connect 33 0 34 0;
+#X connect 34 0 7 0;
